@@ -15,3 +15,24 @@ while(counter <= 7) {
    }
    counter++;
 }
+
+// generate a random color when mouse hovers over square div
+let gridElement = document.querySelectorAll(".element");
+
+gridElement.forEach((element) => {
+    element.addEventListener("mouseover", (e) => {
+        // let target = e.target;
+        target.style.cssText = "background-color: red;";
+    });
+
+    element.addEventListener("mouseout", (e) => {
+        // let target = e.target;
+        target.style.cssText = "background-color: #b6b8b0";
+    });
+});
+
+// for(i = 0; i < gridElement.length; i++) {
+//     gridElement[i].addEventListener('mouseenter', () => {
+//         gridElement[i].style.cssText = "background-color: red;";
+//     });
+// }
