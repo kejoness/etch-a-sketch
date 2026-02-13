@@ -26,3 +26,23 @@ gridElement.forEach((element) => {
         e.currentTarget.style.backgroundColor = "red";
     });
 });
+
+// make button generate a new grid when clicked
+function generateNewGrid(num) {
+    const currentGrid = document.getElementById('container');
+    currentGrid.remove();
+
+    let amountOfGrids = num * num;
+    // return alert(`You would like a ${num}x${num} grid.`);
+}
+
+let generateButton = document.querySelector('#button-wrapper');
+
+generateButton.addEventListener('click', () => {
+    let numOfGrids = prompt('How many grids do you want in your new sketchpad? Please enter one number and do not go above 100.');
+    if(numOfGrids > 100) {
+        alert("That's too many grids!");
+    } else {
+        generateNewGrid(numOfGrids);
+    }
+});
