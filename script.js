@@ -33,7 +33,18 @@ function generateNewGrid(num) {
     currentGrid.remove();
 
     let amountOfGrids = num * num;
-    // return alert(`You would like a ${num}x${num} grid.`);
+    const newContainer = document.createElement("div");
+    newContainer.classList.toggle("new-container");
+    
+    const body = document.querySelector("body");
+    body.appendChild(newContainer);
+
+    for(i = 0; i < amountOfGrids; i++) {
+        let grid = document.createElement("div");
+        grid.classList.toggle("element");
+        grid.style.cssText = "border-width: 1px; border-style: solid; height: 30px; width: 30px; background-color: #b6b8b0;";
+        newContainer.appendChild(grid);
+    }
 }
 
 let generateButton = document.querySelector('#button-wrapper');
