@@ -1,4 +1,4 @@
-const container = document.querySelector('#container');
+const container = document.querySelector('.container');
 
 // creates a 16x16 grid
 counter = 0;
@@ -29,21 +29,28 @@ gridElement.forEach((element) => {
 
 // make button generate a new grid when clicked
 function generateNewGrid(num) {
-    const currentGrid = document.getElementById('container');
-    currentGrid.remove();
+    const currentGrid = document.getElementsByClassName("container");
+    while(currentGrid.length > 0) {
+        currentGrid[0].parentNode.removeChild(currentGrid[0]);
+    }
 
-    let amountOfGrids = num * num;
     const newContainer = document.createElement("div");
-    newContainer.classList.toggle("new-container");
+    newContainer.classList.toggle("container");
     
     const body = document.querySelector("body");
     body.appendChild(newContainer);
 
-    for(i = 0; i < amountOfGrids; i++) {
-        let grid = document.createElement("div");
-        grid.classList.toggle("element");
-        grid.style.cssText = "border-width: 1px; border-style: solid; height: 30px; width: 30px; background-color: #b6b8b0;";
-        newContainer.appendChild(grid);
+    for(row = 1; row <= num; row++) {
+        let row = document.createElement('div');
+        row.classList.toggle('element');
+        for(cell = 0; cell <= (num - 1); cell++) {
+            let cell = document.createElement("div");
+            cell.classList.toggle("element");
+            cell.style.cssText = "border-width: 1px; border-style: solid; height: 30px; width: 30px; background-color: #b6b8b0;";
+            row.appendChild(cell);
+        }
+        row.style.cssText = "border-width: 1px; border-style: solid; height: 30px; width: 30px; background-color: #b6b8b0;";
+        newContainer.appendChild(row);
     }
 }
 
