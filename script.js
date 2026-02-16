@@ -19,12 +19,12 @@ while(counter <= 7) {
 }
 
 // turn square div red when mouse hovers over it
-let gridElement = document.querySelectorAll(".element");
+let body = document.querySelector('body');
 
-gridElement.forEach((element) => {
-    element.addEventListener("mouseover", (e) => {
-        e.currentTarget.style.backgroundColor = "red";
-    });
+body.addEventListener('mouseover', (e) => {
+    if (e.target.classList.contains('element')) {
+        e.target.style.backgroundColor = "red";
+    }
 });
 
 // make button generate a new grid when clicked
@@ -34,10 +34,10 @@ function generateNewGrid(num) {
         currentGrid[0].parentNode.removeChild(currentGrid[0]);
     }
 
-    const newContainer = document.createElement("div");
+    let newContainer = document.createElement("div");
     newContainer.classList.toggle("container");
     
-    const body = document.querySelector("body");
+    let body = document.querySelector("body");
     body.appendChild(newContainer);
 
     for(row = 1; row <= num; row++) {
