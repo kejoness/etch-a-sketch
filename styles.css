@@ -15,8 +15,7 @@ body {
     margin: 10px;
 }
 
-#container,
-.new-container {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
